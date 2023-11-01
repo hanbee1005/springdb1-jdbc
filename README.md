@@ -93,3 +93,12 @@
 - 스프링 부트를 사용하면 자동으로 HikariCP를 사용하게 됩니다.
 </p>
 </details>
+
+<details><summary>DataSource 이해</summary>
+<p>
+
+- 커넥션을 획득하는 방법을 추상화한 것입니다.
+- 개발자는 DriverManager 나 커넥션 풀에 직접 접근하는게 아니라 DataSource 인터페이스를 의존하여 사용하면 됩니다.
+- DriverManager는 DataSource 인터페이스를 구현하고 있지는 않지만 Spring이 DriverManager도 DataSource 인터페이스를 통해 사용할 수 있도록 DriverManagerDataSource 라는 클래스를 제공합니다.
+</p>
+</details>
