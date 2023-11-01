@@ -100,5 +100,9 @@
 - 커넥션을 획득하는 방법을 추상화한 것입니다.
 - 개발자는 DriverManager 나 커넥션 풀에 직접 접근하는게 아니라 DataSource 인터페이스를 의존하여 사용하면 됩니다.
 - DriverManager는 DataSource 인터페이스를 구현하고 있지는 않지만 Spring이 DriverManager도 DataSource 인터페이스를 통해 사용할 수 있도록 DriverManagerDataSource 라는 클래스를 제공합니다.
+- 설정과 사용의 분리
+  + DriverManager를 직접 사용하면 생성 및 사용 시점에 필요한 연결정보를 모두 추가해야 하지만
+  + DriverManagerDataSource는 생성 시점에만 연결 정보를 전달하고 생성 시점에는 사용만 하면 됩니다.
+  + 이렇게 구분을 함으로써 설정을 한 곳에서 관리할 수 있고 사용할 때는 편하게 사용할 수 있습니다.
 </p>
 </details>
