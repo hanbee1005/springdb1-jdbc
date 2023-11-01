@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
@@ -22,10 +23,15 @@ class MemberRepositoryV0Test {
         Member member = new Member("memberV0", 10000);
 
         // when
-        Member savedMember = repository.save(member);
+        repository.save(member);
+        Member findMember = repository.findById(member.getMemberId());
+        log.info("findMember={}", findMember);
+
+        log.info("member == findMember: {}", member == findMember);
+        log.info("member equals findMember: {}", member.equals(findMember));
 
         // then
-        // Assertions.assertThat();
+        assertThat(findMember).isEqualTo(member);
     }
 
 }
